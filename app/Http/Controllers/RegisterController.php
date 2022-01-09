@@ -15,7 +15,7 @@ class RegisterController extends Controller
             'fName'=> 'required|string',
             'lName'=> 'required|string',
             'email'=> 'required|unique:users|string|email',
-            'phone'=> 'required|numeric|min:13',
+            'phone'=> 'required|unique:users|numeric|min:13',
             'password'=> 'required|alpha_num|confirmed',
             'role'=> 'nullable|string'
         ]);
