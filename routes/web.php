@@ -24,7 +24,7 @@ use App\Http\Controllers\RegisterController;
 Route::middleware(['auth.guest'])->group(function () {
    
     Route::get('/', [LoginController::class, 'loginpage'])->name('login');
-    Route::get('/register', [RegisterController::class, 'register'])->name('register');
+    Route::get('/user/register', [RegisterController::class, 'register'])->name('register');
 
 });
 
