@@ -30,9 +30,9 @@ jobs:
       needs: build
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       steps:
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-           with:
-              php-version: '7.4'
+      # - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      #     with:
+      #       php-version: '7.4'
       - uses: actions/checkout@v2
       -name: Deploy live
           env: 
