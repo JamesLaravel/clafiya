@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Validator;
 class LoginController extends Controller
 {
 
+    public function loginPage()
+    {
+        return view('auth.login');
+    }
 
     public function login(Request $request)
     {

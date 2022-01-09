@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 class RegisterController extends Controller
 {
     
+    public function registerPage()
+    {
+        return view('auth.register');
+    }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
