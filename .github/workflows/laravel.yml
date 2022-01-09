@@ -35,14 +35,14 @@ jobs:
       #       php-version: '7.4'
       - uses: actions/checkout@v2
       - name: Deploy live
-          env: 
-            base_directory: "~/var/www/clafiya"
-            ssh_user: "Clafiya"
-            ssh_host: "18.130.248.177"
-            ssh_port: 22
-            private_ssh_key: "${{ secrets.SSH_KEY}}"
-            ssh_known_hosts: "${{ secrets.SSH_KNOWN_HOSTS }}"
-          run: dep deploy production --tag=https://github.com/JamesLaravel/clafiya -vvv
+        env: 
+          base_directory: "~/var/www/clafiya"
+          ssh_user: "Clafiya"
+          ssh_host: "18.130.248.177"
+          ssh_port: 22
+          private_ssh_key: "${{ secrets.SSH_KEY}}"
+          ssh_known_hosts: "${{ secrets.SSH_KNOWN_HOSTS }}"
+        run: dep deploy production --tag=https://github.com/JamesLaravel/clafiya -vvv
 
 
    
