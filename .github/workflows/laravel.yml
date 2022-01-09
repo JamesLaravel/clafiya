@@ -27,7 +27,7 @@ jobs:
 
   deploy-production:
       runs-on: ubuntu-latest
-      needs: build
+      needs: laravel-tests
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       steps:
       # - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
