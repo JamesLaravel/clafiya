@@ -20,6 +20,8 @@ php artisan clear-compiled
 php artisan optimize
 
 # Compile npm assets
+npm install
+
 npm run prod
 
 # Exit maintenance mode
