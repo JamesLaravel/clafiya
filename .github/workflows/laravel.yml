@@ -17,5 +17,5 @@ jobs:
           host: "18.130.248.177"
           username: "ubuntu"
           port: 22
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           script: "cd /var/www/clafiya && ./.scripts/deploy.sh"
