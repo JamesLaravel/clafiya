@@ -19,8 +19,6 @@ php artisan clear-compiled
 # Recreate cache
 php artisan optimize
 
-
-
 # Exit maintenance mode
 php artisan up
 
