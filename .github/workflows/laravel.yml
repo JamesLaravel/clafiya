@@ -36,17 +36,12 @@ jobs:
             php-version: 7.4
       - name: Composer update
         run: composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      # - name: Setup Deployer
-      #   uses: atymic/deployer-php-action@master
-      #   with: 
-      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #     ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Setup Deployer
+        uses: atymic/deployer-php-action@master
+        with: 
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy live
         env:
-          base_directory: "~/var/www/clafiya"
-          ssh_user: "Clafiya"
-          ssh_host: "18.130.248.177"
-          ssh_port: 22
-          private_ssh_key: ${{ secrets.SSH_KEY }}
-          ssh_known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-        run: ssh root@18.130.248.177 "cd /var/www/clafiya && git pull && exit"
+          DOT_ENV: ${{ secrets.DOT_ENV_PRODUCTION }}
+        run: dep deploy production --tag=${{ env.GITHUB_REF }} -vvv
