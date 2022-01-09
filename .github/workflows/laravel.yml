@@ -29,16 +29,23 @@ jobs:
     needs: laravel-tests
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      # - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      #     with:
-      #       php-version: '7.4'
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+          with:
+            php-version: '7.4'
       - uses: actions/checkout@v2
+      - name: Composer update
+        run: composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      # - name: Setup Deployer
+      #   uses: atymic/deployer-php-action@master
+      #   with: 
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy live
         env:
           base_directory: "~/var/www/clafiya"
           ssh_user: "Clafiya"
           ssh_host: "18.130.248.177"
           ssh_port: 22
-          private_ssh_key: "${{ secrets.SSH_KEY }}"
-          ssh_known_hosts: "${{ secrets.SSH_KNOWN_HOSTS }}"
+          private_ssh_key: ${{ secrets.SSH_KEY }}
+          ssh_known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
         run: ssh root@18.130.248.177 "cd /var/www/clafiya && git pull && exit"
