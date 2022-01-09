@@ -18,4 +18,4 @@ jobs:
           username: "ubuntu"
           port: 22
           key: ${{ secrets.SSH_KEY }}
-          script: "cd /var/www/clafiya && /.scripts/deploy.sh"
+          script: "cd /var/www/clafiya && git pull && ./.scripts/deploy.sh"
