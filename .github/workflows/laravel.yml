@@ -39,6 +39,6 @@ jobs:
           ssh_user: "Clafiya"
           ssh_host: "18.130.248.177"
           ssh_port: 22
-          private_ssh_key: "${{ secrets.SSH_KEY}}"
+          private_ssh_key: "${{ secrets.SSH_KEY }}"
           ssh_known_hosts: "${{ secrets.SSH_KNOWN_HOSTS }}"
         run: ssh root@18.130.248.177 "cd /var/www/clafiya && git pull && exit"
