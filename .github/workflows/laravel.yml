@@ -34,7 +34,7 @@ jobs:
       #     with:
       #       php-version: '7.4'
       - uses: actions/checkout@v2
-      -name: Deploy live
+      - name: Deploy live
           env: 
             base_directory: "~/var/www/clafiya"
             ssh_user: "Clafiya"
