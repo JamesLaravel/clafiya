@@ -1,0 +1,5 @@
+version: 0.0
+os: linux
+files:
+  -source: /public/index.html
+  destionation: /var/www/clafiya/
