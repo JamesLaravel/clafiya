@@ -19,8 +19,6 @@ php artisan clear-compiled
 # Recreate cache
 php artisan optimize
 
-# Compile npm assets
-npm run prod
 
 # Exit maintenance mode
 php artisan up
