@@ -16,14 +16,14 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::middleware(['auth.guest'])->group(function () {
    
-    Route::get('/', [LoginController::class, 'loginpage'])->name('login');
+    Route::get('/login', [LoginController::class, 'loginpage'])->name('login');
     Route::get('/register', [RegisterController::class, 'registerpage'])->name('register');
 
 });
