@@ -4,9 +4,9 @@
 To Set this project Up, run:
 
 - **[git clone https://github.com/JamesLaravel/clafiya.git](https://github.com/JamesLaravel/clafiya.git)**
-- ** composer install **
-- ** php artisan migrate **
-- ** php artisan passport:install **
+- composer install 
+- php artisan migrate **
+- php artisan passport:install
 
 ## Project Description
 
