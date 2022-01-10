@@ -14,6 +14,7 @@ To Set this project Up, run:
 
  - The Application is hosted on an aws ec2 server(ubuntu)
  - public IP address of server - http://18.130.248.177/
+ - CI/CD setup using git action
 
 
 
