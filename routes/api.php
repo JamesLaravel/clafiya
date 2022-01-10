@@ -22,8 +22,8 @@ use App\Http\Controllers\UserController;
 // });
 
 
-Route::post('register',  [RegisterController::class, 'register']);
-Route::post('login', [LoginController::class, 'login']);
+Route::post('register',  [RegisterController::class, 'register'])->name('signup');
+Route::post('login', [LoginController::class, 'login'])->name('signin');
 
 // admin users routes
 Route::middleware('auth:api', 'scope:admin-users')->group(function() {

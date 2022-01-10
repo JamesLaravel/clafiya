@@ -8,14 +8,14 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('signin')}}" id="login">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
                             </div>
                         </div>
 
@@ -58,4 +58,37 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+
+<script>
+    $('#login').submit((e)=> {
+        e.preventDefault()
+
+        const username = $('#username').val()
+        const password = $('#password').val()
+
+        const url = $('#login').attr("action")
+            console.log(url)
+            $.ajax({
+                type: "POST",
+                url,
+                data: {username, password},   
+                success: function (response) {
+                    alert('User Login successfully');
+                    if(response.data.role === 'admin'){
+                        
+                        window.location.href = "{{route('admin')}}"
+                    }else{
+                        window.location.href = "{{route('home')}}"
+                    }
+                   
+                },
+                error: function(error){
+                    console.log(error)
+                }
+            });
+    })
+</script>
 @endsection

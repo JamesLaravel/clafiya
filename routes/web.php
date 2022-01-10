@@ -28,8 +28,7 @@ Route::middleware(['auth.guest'])->group(function () {
 
 });
 
-Route::middleware(['auth.user'])->group(function () {
-    
-    Route::get('/user', [HomeController::class, 'index']);
-    Route::get('/user/admin', [HomeController::class, 'admin']);
-});
+Route::get('/user', [HomeController::class, 'index'])->name('home');
+Route::get('/user/admin', [HomeController::class, 'admin'])->name('admin');
+
+
